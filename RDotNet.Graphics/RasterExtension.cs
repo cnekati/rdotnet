@@ -1,5 +1,5 @@
 ﻿using System;
-
+using RDotNet;
 namespace RDotNet.Graphics
 {
     public static class RasterExtension

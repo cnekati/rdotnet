@@ -16,19 +16,12 @@ namespace RDotNet.Graphics
 
         public GraphicsDeviceAdapter(IGraphicsDevice device)
         {
-            if (device == null)
-            {
-                throw new ArgumentNullException("device");
-            }
-            this.device = device;
+            this.device = device ?? throw new ArgumentNullException(nameof(device));
             this.delegateHandles = new List<GCHandle>();
             this.gdd = IntPtr.Zero;
         }
 
-        public REngine Engine
-        {
-            get { return this.engine; }
-        }
+        public REngine Engine => engine;
 
         protected TDelegate GetFunction<TDelegate>() where TDelegate : class
         {
